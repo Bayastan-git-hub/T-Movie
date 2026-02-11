@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bigelow+Rules&display=swap');
+
+.Tomas {
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    margin-top: 240px;
+    margin-left: 280px;
+}
+.fon {
+    position: absolute;
+    width: 100%;
+    height: 375px;
+    border-radius: 20px;
+    z-index: 1;
+}
+.tomi {
+    position: absolute;
+    z-index: 2;
+    width: 297px;
+    height: 527px;
+    top: -149px;
+    left: 428px;
+}
+.pesok {
+    position: absolute;
+    z-index: 3;
+    width: 700px;
+    height: 337px;
+    top: 38px;
+    left: 221px;
+}
+.contain {
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #808080;
+    height: 280px;
+    top: 47px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #808080;
+    padding: 10px;
+}
+.description {
+    width: 280px;
+    height: 231px;
+    left: 56px;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+}
+.watch {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: #E7BC0F;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 18px;
+}
+.spans {
+    position: absolute;
+    z-index: 4;
+    top: 5px;
+    left: 376px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 265px;
+    font-family: "Bigelow Rules", serif;
+}
+.span {
+    color: #CCCCCC;
+    font-size: 38px;
+}
+.text {
+    position: absolute;
+    z-index: 4;
+    width: 547px;
+    height: 85px;
+    top: 287px;
+    right: 250px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.h4-text {
+    position: absolute;
+    right: 210px;
+    bottom: 70px;
+     font-family: "Bebas Neue", sans-serif;
+     font-size: 24px;
+}
+.h1-text {
+    position: absolute;
+    top: 1px;
+    right: 210px;
+    font-size: 64px;
+     font-family: "Bebas Neue", sans-serif;
+}

@@ -1,0 +1,23 @@
+.main-discover {
+  margin-left: 220px; /* место под Sidebar */
+  margin-top: 72px;   /* место под Header */
+
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.kok {
+  min-width: 1200px;
+}
+
+/* Центральная часть */
+.centeR {
+  display: flex;
+  justify-content: center;
+}
+
+/* Правая карточка */
+.righT {
+  display: flex;
+  align-items: flex-start;
+}
