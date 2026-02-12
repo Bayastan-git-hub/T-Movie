@@ -1,44 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import Cards from '../../components/Cards/Cards'
+import { useEffect, useState } from "react"
 import "./Artists.css"
-
-
-const API = "https://api.themoviedb.org/3/movie/550/credits?api_key=2fa8f297328a4293f06805fe0c1b915d"
-const IMG_URL = "https://image.tmdb.org/t/p/w500"
+import found444 from "../../assets/Image (2).png"
+import { apiClient } from "../../components/axios/apiClient"
 
 function Artists() {
-  const [artists, setArtists] = useState([])
+  const [artist, setArtist] = useState([])
 
   async function getArtist() {
     try {
-      const res = await fetch(API)
-      const data = await res.json()
-      setArtists(data.cast) 
+      const res = await apiClient.get("/movie/550/credits?api_key=2fa8f297328a4293f06805fe0c1b915d")
+      console.log(res.data.cast)
+      setArtist(res.data.cast)
     } catch (error) {
-      console.error(error)
+      console.log(error)
+      return `<img src=${found444} alt="" />`
     }
   }
-
   useEffect(() => {
     getArtist()
   }, [])
 
   return (
-    <div className="artists">
-      {artists.map(actor => (
-<Cards
-  key={actor.id}
-  name={actor.name}
-  image={
-    actor.profile_path
-      ? IMG_URL + actor.profile_path
-      : "https://via.placeholder.com/300x450?text=No+Image"
-  }
-  departments={[actor.known_for_department, "Producer", "Writer"].slice(0, 2)} 
-  movies={Math.round(actor.popularity)}
-/>
-
-      ))}
+    <div className="artist">
+      {artist.map((arti) => {
+        <div key={item.art} artists={arti} ></div>
+      })
+      }
     </div>
   )
 }
