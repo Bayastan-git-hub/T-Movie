@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from "react"
 import MovieCards from "../../components/MovieCards/MovieCards"
 import "./Watchlist.css"
+import { apiClient } from "../../components/axios/apiClient"
 
 function Watchlist() {
   const [films, setFilms] = useState([])
   const [genres, setGenres] = useState({})
 
+   
+  async function getFilm() {
+    try {
+      const res = await apiClient.get("/movie/now_playing?language=ru&api_key=2fa8f297328a4293f06805fe0c1b915d")
+      setFilms(res.data.results)
+      
+      const genreRes = await apiClient.get("/genre/movie/list?api_key=2fa8f297328a4293f06805fe0c1b915d&language=ru")
+      const genreMap = {}
+      genreRes.data.genres.forEach(g => {
+      genreMap[g.id] = g.name
+      })
+
+      setGenres(genreMap)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
   useEffect(() => {
-
-    // 🎬 ФИЛЬМЫ
-    fetch("https://api.themoviedb.org/3/movie/now_playing?language=ru&api_key=2fa8f297328a4293f06805fe0c1b915d")
-      .then(res => res.json())
-      .then(data => {
-        setFilms(data.results)
-      })
-
-    // 📚 ЖАНРЫ
-    fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=2fa8f297328a4293f06805fe0c1b915d&language")
-      .then(res => res.json())
-      .then(data => {
-        const genreMap = {}
-
-        data.genres.forEach(item => {
-          genreMap[item.id] = item.name
-        })
-
-        setGenres(genreMap)
-      })
-
+    getFilm()
   }, [])
 
-  if (films.length === 0) {
+  if (!films.length || !Object.keys(genres).length) {
     return <h2 style={{color:"white"}}>Loading...</h2>
   }
 
