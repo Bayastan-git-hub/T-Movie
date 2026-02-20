@@ -1,0 +1,27 @@
+.admin-container {
+  margin-left: 280px;
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.admin-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 14px;
+  padding: 40px;
+  width: 500px;
+  color: #fff;
+}
+
+.admin-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.admin-text {
+  color: #ccc;
+  font-size: 15px;
+}
